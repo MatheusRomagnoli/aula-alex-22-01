@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Frases</title>
+
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+     <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            padding: 12px;
+        }
+
+        .container-geral-cadastro{ 
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            width: 700px;
+        }
+
+     </style>
+</head>
+<body>
+    <div class="container-geral-cadastro">
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Digite sua frase</label>
+                </div>
+            </form>
+
+            <!-- CARTÃO MODELO -->
+            {% for frases in lista_frases_html %}
+            <div class="col s12 m5">
+                <div class="card-panel pink lighten-4">
+                  <span class="white-text"> {{frases}} </span>
+                </div>
+          </div>
+            {% endfor %}
+
+          
+
+    </div>
+    
+</body>
+</html>

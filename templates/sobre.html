@@ -12,28 +12,47 @@
             box-sizing: border-box;
         }
 
+        .header{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
         body{
             padding: 12px;
         }
 
-        .container-geral{
+        .container-geral-sobre{
             width: 100vw;
             height: 100vh;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             background-color: {{cor_de_fundo_html}};
+        }
+        
+        .imagem-DAW{
+            width: 750px;
+            border-radius: 20px;
         }
 
         
     </style>
 </head>
-<header>
+<header class="header">
     <span>como</span>
     <span>sobre</span>
     <span>novidades</span>
     <button>LOGIN</button>
 </header>
 <body>
-    <div class="container-geral">
-        <img src="/static/img/imagem_daw.webp" alt="imagem DAW">
+    <div class="container-geral-sobre">
+        <img src="/static/img/imagem_daw.webp" alt="imagem DAW" class="imagem-DAW">
         <h1>Curiosidades sobre as DAW'S</h1>
         <p>
             <strong>O que é uma DAW e sua importância na música:</strong>
