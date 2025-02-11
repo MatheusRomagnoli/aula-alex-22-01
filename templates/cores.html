@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores Lista</title>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+</head>
+<body>
+    <!-- cadastra a COR -->
+    <div class="row">
+        <form class="col s12" action="/cores" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="cor" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Digite sua cor </label>
+              <button type="submit">salvar</button>
+            </div>
+        </form>
+
+        <!-- CAIXA CORES -->
+        {% for cor in lista_cores_html %}
+        <div class="col s12 m5">
+            <div class="card-panel">
+                <!-- -------------------------------- -->
+              <span class="white-text"> {{cor}} </span>
+            </div>
+      </div>
+        {% endfor %}
+</body>
+</html>

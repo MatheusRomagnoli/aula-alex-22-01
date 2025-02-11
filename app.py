@@ -34,7 +34,8 @@ def pagina_sobre():
 @app.route("/cadastro", methods=["GET"])
 def pagina_cadastro():
     cor_de_fundo = random.choice(lista_cores)
-    return  render_template("cadastro.html", lista_frases_html = lista_frases)
+    return  render_template("cadastro.html",
+                            lista_frases_html = lista_frases)
     
 
 @app.route("/post/cadastrarfrase", methods=["POST"])
@@ -42,5 +43,9 @@ def post_cadastrarfrase():
     frase_vinda_do_html = request.form.get("frase")
     lista_frases.append(frase_vinda_do_html)
     redirect("/cadastro")
+
+@app.route("/cores", methods=["GET"])
+def pagina_cores():
+    return render_template("cores.html")
 
 app.run(debug=True, host="0.0.0.0", port=8080)
