@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import random
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ lista_frases = ["Transforme suas ideias em sons. DAWs: a chave para a criativida
                 "Inspire-se, componha e edite. As DAWs tornam a produção musical acessível."]
 
 # AQUI IRÁ TODAS AS MINHAS ROTAS
-@app.route("/")
+@app.route("/", methods=["GET"])
 def pagina_inicial():
     cor_de_fundo = random.choice(lista_cores)
     frase = random.choice(lista_frases)
@@ -31,10 +31,16 @@ def pagina_sobre():
     return  render_template("sobre.html",
                             cor_de_fundo_html = cor_de_fundo)
 
-@app.route("/cadastro")
+@app.route("/cadastro", methods=["GET"])
 def pagina_cadastro():
     cor_de_fundo = random.choice(lista_cores)
     return  render_template("cadastro.html", lista_frases_html = lista_frases)
     
+
+@app.route("/post/cadastrarfrase", methods=["POST"])
+def post_cadastrarfrase():
+    frase_vinda_do_html = request.form.get("frase")
+    lista_frases.append(frase_vinda_do_html)
+    redirect("/cadastro")
 
 app.run(debug=True, host="0.0.0.0", port=8080)

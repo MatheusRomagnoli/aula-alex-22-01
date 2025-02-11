@@ -44,12 +44,14 @@
 <body>
     <div class="container-geral-cadastro">
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="/post/cadastrarfrase" method="post">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="icon_prefix" type="text" class="validate">
+                  <input name="frase" id="icon_prefix" type="text" class="validate">
                   <label for="icon_prefix">Digite sua frase</label>
                 </div>
+
+                <button type="submit" name="enviar">teste enviar</button>
             </form>
 
             <!-- CARTÃO MODELO -->
