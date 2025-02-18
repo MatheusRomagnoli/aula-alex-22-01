@@ -25,7 +25,7 @@
 <body>
     <!-- cadastra a COR -->
     <div class="row">
-        <form class="col s12" action="/cores" method="post">
+        <form class="col s12" action="/cadastrarcores" method="post">
           <div class="row">
             <div class="input-field col s6">
               <input name="cor" id="icon_prefix" type="text" class="validate">
@@ -40,6 +40,12 @@
             <div class="card-panel">
                 <!-- -------------------------------- -->
               <span class="white-text"> {{cor}} </span>
+              <!-- simbolo excluir -->
+              <a href="">
+                <span class="material-symbols-outlined">
+                  delete
+                  </span>
+              </a>
             </div>
       </div>
         {% endfor %}

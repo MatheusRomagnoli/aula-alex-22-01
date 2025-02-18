@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, request
 import random
 
 app = Flask(__name__)
@@ -42,10 +42,16 @@ def pagina_cadastro():
 def post_cadastrarfrase():
     frase_vinda_do_html = request.form.get("frase")
     lista_frases.append(frase_vinda_do_html)
-    redirect("/cadastro")
+    return redirect("/cadastro")
 
 @app.route("/cores", methods=["GET"])
 def pagina_cores():
     return render_template("cores.html")
+
+@app.route("/cadastrarcores", methods=["POST"])
+def pagina_cores():
+    cor = request.form.get("cor")
+    lista_cores.append(cor)
+    return redirect("/cores")
 
 app.run(debug=True, host="0.0.0.0", port=8080)
