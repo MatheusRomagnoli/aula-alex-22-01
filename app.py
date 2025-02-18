@@ -46,12 +46,22 @@ def post_cadastrarfrase():
 
 @app.route("/cores", methods=["GET"])
 def pagina_cores():
-    return render_template("cores.html")
+    return render_template("cores.html", lista_cores_html=lista_cores)
 
 @app.route("/cadastrarcores", methods=["POST"])
-def pagina_cores():
+def pagina_cadastrar_cores():
     cor = request.form.get("cor")
     lista_cores.append(cor)
     return redirect("/cores")
+
+@app.route("/cores/delete/<indice_cor>")
+def delete_cores(indice_cor):
+    # converte o índice pra numero inteiro (ele vem como string)
+    indice_cor = int(indice_cor)
+    # exclui a cor da lista pelo índice
+    lista_cores.pop(indice_cor)
+    # redireciona para a pagina/rota /cores
+    return redirect("/cores")
+
 
 app.run(debug=True, host="0.0.0.0", port=8080)

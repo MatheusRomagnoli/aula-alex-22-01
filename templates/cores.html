@@ -37,11 +37,11 @@
         <!-- CAIXA CORES -->
         {% for cor in lista_cores_html %}
         <div class="col s12 m5">
-            <div class="card-panel">
+            <div class="card-panel" style="background-color: {{cor}};">
                 <!-- -------------------------------- -->
               <span class="white-text"> {{cor}} </span>
               <!-- simbolo excluir -->
-              <a href="">
+              <a href="/cores/delete/{{loop.index0}}">
                 <span class="material-symbols-outlined">
                   delete
                   </span>
